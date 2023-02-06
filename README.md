@@ -29,11 +29,20 @@ Rust was born in 2006 and is relatively new language. It is a game changer now. 
 
 **Quick Sort**
 
+Performance:
+
 ```
 ----------------
 | Lang | Speed |
-| Rust |       |
-| C    | 2.173 | -> 2.18 / 2.13 / 2.21
-| V    |       |
+| Rust | 1.703 | -> 1.70 / 1.71 / 1.70
+| V    | 2.013 | -> 1.98 / 2.00 / 2.06
+| C    | 2.196 | -> 2.20 / 2.21 / 2.18
 ----------------
 ```
+
+**More verbose Result (more detailed) can be found in Rust/src/main.rscomment section (top)**
+
+**Versions**
+Rustup: 1.66.0
+V: 0.3.3
+GCC: 12.2.1
