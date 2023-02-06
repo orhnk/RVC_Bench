@@ -3,16 +3,21 @@ use std::{
     ptr::write, ops::Index,
 }; // -> initializing memory same as in C
 
-const SIZE: i32 = 100000; // -> same as in C
+const SIZE: usize = 100000; // -> same as in C
 fn main() {
-    println!("Sort numbers ascending");
-    let mut numbers = MaybeUninit::<[i32; 100000]>::uninit();
-    unsafe {
-        initialize_array(&mut numbers);
+    let mut numbers: [i32; 100000] = unsafe{ MaybeUninit::uninit().assume_init() }; // -> initializing memory same as in C
+    for i in 0..SIZE {
+        numbers[i] = 100000 - i as i32;
     }
-    println!("Before: {:?}", numbers);
-    //quick_sort(&mut numbers);
-    println!("After:  {:?}\n", numbers);
+    unsafe {
+        std::mem::transmute::<_, [i32; 100000]>(numbers);
+    }
+    print!("Before: ");
+    print_array(&numbers);
+    quick_sort(&mut numbers);
+    print!("After: ");
+    print_array(&numbers);
+    print!("\n");
 }
 fn quick_sort<T: Ord>(arr: &mut [T]) {
     let len = 100000;
@@ -47,12 +52,10 @@ fn partition<T: Ord>(arr: &mut [T], low: isize, high: isize) -> isize {
     arr.swap(store_index as usize, pivot as usize);
     store_index
 }
-unsafe fn initialize_array(arr: &mut MaybeUninit<[i32; 100000]>) { // an uninitialized array
 
-    unsafe {
-        for i in 0..100000 {
-            (*((arr.as_mut_ptr() as *mut [i32; 100000])))[i] = i as i32;
-        }
-        unsafe { transmute::<[i32; 100000], [i32; 100000]>(*((arr.as_mut_ptr() as *mut [i32; 100000]))) };
+fn print_array(arr: &[i32]) {
+    for i in 0..SIZE {
+        print!("{} ", arr[i]);
     }
 }
+

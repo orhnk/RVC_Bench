@@ -27,13 +27,13 @@ Rust was born in 2006 and is relatively new language. It is a game changer now. 
 
 # Results
 
-**Bubble Sort**
+**Quick Sort**
 
 ```
 ----------------
 | Lang | Speed |
 | Rust |       |
-| C    |       |
+| C    | 2.173 | -> 2.18 / 2.13 / 2.21
 | V    |       |
 ----------------
 ```
