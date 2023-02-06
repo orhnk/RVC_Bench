@@ -46,3 +46,14 @@ Performance:
 Rustup: 1.66.0
 V: 0.3.3
 GCC: 12.2.1
+
+# Try
+
+you can try all examples inside languages folder.
+I used cargo tool to make it simpler to constuct files:
+just do:
+
+```
+cargo run --example safe --release
+cargo run --example unsafe --release
+```
