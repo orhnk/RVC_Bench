@@ -1,7 +1,4 @@
-use std::{
-    mem::{transmute, MaybeUninit},
-    ptr::write, ops::Index,
-}; // -> initializing memory same as in C
+use std::mem::MaybeUninit;
 
 const SIZE: usize = 100000; // -> same as in C
 fn main() {
@@ -12,12 +9,7 @@ fn main() {
     unsafe {
         std::mem::transmute::<_, [i32; 100000]>(numbers);
     }
-    print!("Before: ");
-    print_array(&numbers);
     quick_sort(&mut numbers);
-    print!("After: ");
-    print_array(&numbers);
-    print!("\n");
 }
 fn quick_sort<T: Ord>(arr: &mut [T]) {
     let len = 100000;
@@ -51,11 +43,5 @@ fn partition<T: Ord>(arr: &mut [T], low: isize, high: isize) -> isize {
     }
     arr.swap(store_index as usize, pivot as usize);
     store_index
-}
-
-fn print_array(arr: &[i32]) {
-    for i in 0..SIZE {
-        print!("{} ", arr[i]);
-    }
 }
 

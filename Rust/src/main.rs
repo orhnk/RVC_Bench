@@ -21,18 +21,14 @@
  * V: 0.3.3 -> Yes. V did not hit the stable yet.
  * GCC: 12.2.1
  * */
+
 const SIZE: usize = 100000; // -> same as in C
 fn main() {
     let mut numbers = Vec::with_capacity(SIZE);
     for i in 0..SIZE {
         numbers.push(100000 - i as i32);
     }
-    print!("Before: ");
-    print_array(&numbers);
     quick_sort(&mut numbers);
-    print!("After: ");
-    print_array(&numbers);
-    print!("\n");
 }
 fn quick_sort<T: Ord>(arr: &mut [T]) {
     let len = 100000;
@@ -66,10 +62,4 @@ fn partition<T: Ord>(arr: &mut [T], low: isize, high: isize) -> isize {
     }
     arr.swap(store_index as usize, pivot as usize);
     store_index
-}
-
-fn print_array(arr: &[i32]) {
-    for i in 0..SIZE {
-        print!("{} ", arr[i]);
-    }
 }

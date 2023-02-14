@@ -32,14 +32,6 @@ fn quicksort(number &int, first int, last int)  {
 	}
 }
 
-fn print_array(arr &int, size int)  {
-	i := 0
-	for i = 0 ; i < size ; i ++ {
-	C.printf(c'%d ', arr [i] )
-	}
-	C.printf(c'\n')
-}
-
 fn initialize_array(arr &int, size int)  {
 	i := 0
 	for i = 0 ; i < size ; i ++ {
@@ -52,11 +44,7 @@ fn main()  {
 	number := [100000]int{}
 	
 	initialize_array(number, count)
-	C.printf(c'Before sorting')
-	print_array(number, count)
-	C.printf(c'\n')
 	quicksort(number, 0, count - 1)
-	print_array(number, count)
 	return 
 }
 

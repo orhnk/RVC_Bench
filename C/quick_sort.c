@@ -24,12 +24,6 @@ void quicksort(int number[CAP], int first, int last) {
     }
 }
 
-void print_array(int arr[], int size) {
-    register int i;
-    for (i = 0; i < size; i++) printf("%d ", arr[i]);
-    printf("\n");
-}
-
 void initialize_array(int arr[], int size) {
     register int i;
     for (i = 0; i < size; i++) arr[i] = size - i;
@@ -38,17 +32,7 @@ void initialize_array(int arr[], int size) {
 int main() {
     int count = CAP, number[CAP];
     initialize_array(number, count);
-    printf("Before sorting");
-    print_array(number, count);
-    printf("\n");
-//    printf("How many elements are u going to enter?: ");
-//    scanf("%d", &count);
-//    printf("Enter %d elements: ", count);
-//    for (i = 0; i < count; i++) scanf("%d", &number[i]);
     quicksort(number, 0, count - 1);
-    print_array(number, count);
-//    printf("Order of Sorted elements: ");
-//    for (i = 0; i < count; i++) printf(" %d", number[i]);
     return 0;
 }
 
