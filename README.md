@@ -46,7 +46,7 @@ Performance:
 **More verbose and old result's are located in Rust/src/safe.rs top comments.**
 
 **Versions**
-Rustup: 1.66.0
+Rustup: 1.67.0
 V: 0.3.3
 GCC: 12.2.1
 
