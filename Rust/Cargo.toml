@@ -9,8 +9,8 @@ edition = "2021"
 
 [[example]]
 name = "safe"
-path = "src/main.rs"
+path = "src/safe.rs"
 
 [[example]]
 name = "unsafe"
-path = "src/unsafe.rs"
+path = "src/main.rs"
